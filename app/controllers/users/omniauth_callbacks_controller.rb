@@ -6,7 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def twitter
   # end
   def yahoo
-    flash.now[:alert] = "something happened!"
+    flash[:notice] = "Got your token, saving it TBD"
     render "homes/index"
   end
 
