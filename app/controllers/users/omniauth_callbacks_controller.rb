@@ -5,6 +5,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should also create an action method in this controller like this:
   # def twitter
   # end
+  def yahoo
+    flash.now[:alert] = "something happened!"
+    render "homes/index"
+  end
 
   # More info at:
   # https://github.com/plataformatec/devise#omniauth
