@@ -6,7 +6,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def twitter
   # end
   def yahoo
-    flash[:notice] = "Got your token, saving it TBD"
+    omniauth_hash = request.env['omniauth.auth']
+    # binding.pry
+    @user = User.initialize_from_auth_hash(omniauth_hash)
+    # if user.save
+      # # sign_in user
+      # flash[:notice] = "IT WORKED"
+    # else
+      # flash[:notice] = "SOMETHING WENT WRONG"
+    # end
     render "homes/index"
   end
 

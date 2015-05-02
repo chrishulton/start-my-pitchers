@@ -257,4 +257,5 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :yahoo, "dj0yJmk9a3JBWnJLQVZUeWhaJmQ9WVdrOVJFMWlURTVsTlRBbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1mMw--", "285b1df20193b5405894b65956117ad60aa65c2e"
+  # config.omniauth :yahoo, "dj0yJmk9TXl6TUNoUjF6WEVSJmQ9WVdrOU9UTnViMEZ5TjJjbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD01Zg--", "38c471c5baf66b96b35ea1250b060356ec5227fa"
 end
