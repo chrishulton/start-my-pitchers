@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502010550) do
+ActiveRecord::Schema.define(version: 20150503175939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150502010550) do
     t.string   "yahoo_id"
     t.string   "yahoo_token"
     t.string   "yahoo_secret"
+    t.string   "yahoo_session_handle"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

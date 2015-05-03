@@ -1,3 +1,6 @@
+devise_config = YAML::load_file(File.join(Rails.root.to_s, 'config', 'yahoo.yml')).freeze
+YAHOO_CREDENTIALS = devise_config[Rails.env.to_sym] || devise_config[:default]
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -256,6 +259,9 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-  config.omniauth :yahoo, "dj0yJmk9a3JBWnJLQVZUeWhaJmQ9WVdrOVJFMWlURTVsTlRBbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1mMw--", "285b1df20193b5405894b65956117ad60aa65c2e"
+  # config.omniauth :yahoo, "dj0yJmk9a3JBWnJLQVZUeWhaJmQ9WVdrOVJFMWlURTVsTlRBbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1mMw--", "285b1df20193b5405894b65956117ad60aa65c2e"
   # config.omniauth :yahoo, "dj0yJmk9TXl6TUNoUjF6WEVSJmQ9WVdrOU9UTnViMEZ5TjJjbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD01Zg--", "38c471c5baf66b96b35ea1250b060356ec5227fa"
+  config.omniauth :yahoo,
+    YAHOO_CREDENTIALS[:app_id],
+    YAHOO_CREDENTIALS[:app_secret]
 end

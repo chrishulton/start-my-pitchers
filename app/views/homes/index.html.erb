@@ -4,3 +4,9 @@
 <h1>Start my pitchers</h1>
 <p>Coming soon</p>
 
+<p>Your baseball leagues are:</p>
+<ul>
+<% @leagues.each do |league| %>
+  <li><%= league["name"] %></li>
+<% end %>
+</ul>

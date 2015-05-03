@@ -1,0 +1,11 @@
+:development: &default
+  :app_id: "dj0yJmk9TXl6TUNoUjF6WEVSJmQ9WVdrOU9UTnViMEZ5TjJjbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD01Zg--"
+  :app_secret: "38c471c5baf66b96b35ea1250b060356ec5227fa"
+
+:test:
+  << *default
+
+:production:
+  :app_id: "dj0yJmk9a3JBWnJLQVZUeWhaJmQ9WVdrOVJFMWlURTVsTlRBbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1mMw--"
+  :app_secret: "285b1df20193b5405894b65956117ad60aa65c2e"
+

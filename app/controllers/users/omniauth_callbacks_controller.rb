@@ -7,15 +7,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
   def yahoo
     omniauth_hash = request.env['omniauth.auth']
-    # binding.pry
     @user = User.initialize_from_auth_hash(omniauth_hash)
+    sign_in @user
     # if user.save
       # # sign_in user
       # flash[:notice] = "IT WORKED"
     # else
       # flash[:notice] = "SOMETHING WENT WRONG"
     # end
-    render "homes/index"
+    # render "homes/index"
+    redirect_to root_path
   end
 
   # More info at:
