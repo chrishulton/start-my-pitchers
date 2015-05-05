@@ -55,7 +55,6 @@ class YahooHelper
         player_meta = player_resp[0].select{ |k| k.class == Hash }.reduce Hash.new, :merge
         player_data.merge!(player_meta)
 
-        puts player_resp
         (1..2).each do |num|
           if player_resp[num].class == Hash
             player_resp[num].each do |k,v|
