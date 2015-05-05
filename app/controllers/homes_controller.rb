@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
   def index
     unless current_user
-      redirect_to new_user_session_path
+      return redirect_to new_user_session_path
     end
 
     @league = ::YahooHelper.get_user_league(current_user)
