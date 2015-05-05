@@ -4,9 +4,13 @@
 <h1>Start my pitchers</h1>
 <p>Coming soon</p>
 
-<p>Your baseball leagues are:</p>
+<p>Your baseball league is: <strong><%= @league["name"] %></strong></p>
+
+<p>Your team is: <strong><%= @team["name"] %></strong></p>
+
+<p>Your current roster pitchers are:</p>
 <ul>
-<% @leagues.each do |league| %>
-  <li><%= league["name"] %></li>
+<% @pitchers.each do |pitcher| %>
+  <li><%= pitcher["name"]["full"] %></li>
 <% end %>
 </ul>

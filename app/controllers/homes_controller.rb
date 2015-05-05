@@ -4,9 +4,12 @@ class HomesController < ApplicationController
       redirect_to new_user_session_path
     end
 
-    @leagues = []
-    if current_user
-      @leagues = ::YahooHelper.get_user_leagues(current_user)
-    end
+    @league = ::YahooHelper.get_user_league(current_user)
+    @team = ::YahooHelper.get_user_team(current_user)
+
+    team_key = @team["team_key"]
+
+    players = ::YahooHelper.get_user_team_roster(current_user, team_key)
+    @pitchers = players.select{ |p| p["display_position"] =~ /(SP)|(RP)/ }
   end
 end

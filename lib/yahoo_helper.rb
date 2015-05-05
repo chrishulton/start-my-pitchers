@@ -28,30 +28,62 @@ class YahooHelper
     user.save!
   end
 
-  def self.get_user_leagues(user)
+  def self.get_user_league(user)
+    url = "http://fantasysports.yahooapis.com/fantasy/v2/users;use_login=1/games;is_available=1;game_keys=mlb/leagues?format=json"
+    resp_body = self.make_user_api_request(user, url)
+    resp_body["fantasy_content"]["users"]["0"]["user"][1]["games"]["0"]["game"][1]["leagues"]["0"]["league"][0]
+  end
+
+  def self.get_user_team(user)
+    url = "http://fantasysports.yahooapis.com/fantasy/v2/users;use_login=1/games;is_available=1;game_keys=mlb/teams?format=json"
+    resp_body = self.make_user_api_request(user, url)
+    team_data = resp_body["fantasy_content"]["users"]["0"]["user"][1]["games"]["0"]["game"][1]["teams"]["0"]["team"][0]
+    team_data.select{ |k| k.class == Hash }.reduce Hash.new, :merge
+  end
+
+  def self.get_user_team_roster(user, team_key)
+    url = "http://fantasysports.yahooapis.com/fantasy/v2/team/#{team_key}/roster/players?format=json"
+    resp_body = self.make_user_api_request(user, url)
+    #XXX WHAT IS THIS FORMAT ????
+    roster_resp = resp_body["fantasy_content"]["team"][1]["roster"]["0"]["players"]
+    players = []
+
+    roster_resp.values.each do |player|
+      if player.class == Hash
+        player_data = {}
+        player_resp = player["player"]
+        player_meta = player_resp[0].select{ |k| k.class == Hash }.reduce Hash.new, :merge
+        player_data.merge!(player_meta)
+
+        puts player_resp
+        (1..2).each do |num|
+          if player_resp[num].class == Hash
+            player_resp[num].each do |k,v|
+              player_resp[num][k] = v.reduce Hash.new, :merge
+            end
+            player_data.merge!(player_resp[num])
+          end
+        end
+        player_data.merge!(player_resp[3])
+        players << player_data
+      end
+    end
+    players
+  end
+
+  private
+
+  def self.make_user_api_request(user, url)
     begin
       access_token = self.get_access_token(user)
-      url = "http://fantasysports.yahooapis.com/fantasy/v2/users;use_login=1/games;game_keys=mlb/leagues?format=json"
       resp = access_token.get(url)
-      # unless resp.header.code == "200"
-        # access_token = self.refresh_access_token(user)
-        # resp = access_token.get(url)
-      # end
       resp_body = MultiJson.load resp.body
-      resp_body["fantasy_content"]["users"]["0"]["user"][1]["games"]["0"]["game"][1]["leagues"]["0"]["league"]
+      resp_body
     rescue OAuth::Problem => error
       if error.message == "token_expired"
         self.refresh_access_token!(user)
-        self.get_user_leagues(user)
+        self.make_user_api_request(user, url)
       end
     end
   end
-
-  # def self.get_client(access_token, application)
-    # youtube_credentials = SOCIAL_NETWORK_CREDS[application]["google_oauth2"]
-    # YouTubeIt::OAuth2Client.new(:client_id            => youtube_credentials["key"],
-                                # :client_secret        => youtube_credentials["secret"],
-                                # :client_access_token  => access_token['token'],
-                                # :client_refresh_token => access_token['refresh_token'])
-  # end
 end
