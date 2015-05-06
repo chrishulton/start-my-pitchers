@@ -41,8 +41,8 @@ class YahooHelper
     team_data.select{ |k| k.class == Hash }.reduce Hash.new, :merge
   end
 
-  def self.get_user_team_roster(user, team_key)
-    url = "http://fantasysports.yahooapis.com/fantasy/v2/team/#{team_key}/roster/players?format=json"
+  def self.get_user_team_roster(user, team_key, date)
+    url = "http://fantasysports.yahooapis.com/fantasy/v2/team/#{team_key}/roster;date=#{date}/players?format=json"
     resp_body = self.make_user_api_request(user, url)
     #XXX WHAT IS THIS FORMAT ????
     roster_resp = resp_body["fantasy_content"]["team"][1]["roster"]["0"]["players"]

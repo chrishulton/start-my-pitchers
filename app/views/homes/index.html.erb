@@ -8,9 +8,27 @@
 
 <p>Your team is: <strong><%= @team["name"] %></strong></p>
 
-<p>Your current roster pitchers are:</p>
-<ul>
-<% @pitchers.each do |pitcher| %>
-  <li><%= pitcher["name"]["full"] %></li>
+<% @week_pitchers.each do |date, pitchers| %>
+  <div class="daily-pitchers" style="float: left; border: 1px solid #b8b5af; padding: 5px">
+    <p style="text-align: center;"><strong><%= Date::DAYNAMES[date.wday] %></strong><br><%= date %></p>
+    <table>
+    <% pitchers.each do |pitcher| %>
+      <tr
+      <% if pitcher["starting_status"] && pitcher["starting_status"]["is_starting"] == 1 %>
+        style="background-color: #0ab5d3; color: white;"
+      <% end %>
+      >
+        <td>
+          <%= pitcher["selected_position"]["position"] %>
+        </td>
+        <td>
+          <% if pitcher["starting_status"] && pitcher["starting_status"]["is_starting"] == 1 %>
+            <strong>^</strong>
+          <% end %>
+        <%= pitcher["name"]["last"] %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
 <% end %>
-</ul>
