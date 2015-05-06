@@ -9,7 +9,7 @@
 <p>Your team is: <strong><%= @team["name"] %></strong></p>
 
 <% @week_pitchers.each do |date, pitchers| %>
-  <div class="daily-pitchers" style="float: left; border: 1px solid #b8b5af; padding: 5px">
+  <div class="daily-pitchers" style="float: left; border: 1px solid #b8b5af; padding: 5px; font-size: 12px">
     <p style="text-align: center;"><strong><%= Date::DAYNAMES[date.wday] %></strong><br><%= date %></p>
     <table>
     <% pitchers.each do |pitcher| %>
@@ -19,13 +19,16 @@
       <% end %>
       >
         <td>
-          <%= pitcher["selected_position"]["position"] %>
-        </td>
-        <td>
           <% if pitcher["starting_status"] && pitcher["starting_status"]["is_starting"] == 1 %>
             <strong>^</strong>
           <% end %>
-        <%= pitcher["name"]["last"] %>
+        </td>
+        <td>
+          <%= pitcher["selected_position"]["position"] %>
+        </td>
+        <td>
+        <%= pitcher["name"]["first"].first %>. <%= pitcher["name"]["last"] %>
+        (<%= pitcher["eligible_positions"].select{ |p| !["P","DL"].include?(p["position"]) }.map{ |p| p["position"] }.join("/") %>)
         </td>
       </tr>
     <% end %>
