@@ -1,9 +1,75 @@
 body {
+  background-color: #f9f9f9;
   font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 10px 0;
 }
 
 .notice {
   background: #FFF6BF;
   border-color: #FFD324;
   color: #817134;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 0 auto;
+}
+
+form {
+  text-align: center;
+}
+
+.daily-pitchers {
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid #b8b5af;
+  float: left;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.btn {
+  background-color: #3775dd;
+  border-radius: 3px;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px auto 10px;
+}
+
+.team {
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid #b8b5af;
+  height: 88px;
+  margin-bottom: 10px;
+  padding: 10px 25px;
+  width: 300px;
+}
+
+.team-left {
+  float: left;
+
+  .team-logo {
+    border-radius: 50%;
+    height: auto;
+    width: 80px;
+  }
+}
+
+.team-right {
+  float: right;
+
+  .team-name {
+    margin: 18px auto 4px;
+  }
+
+  .league-name {
+    margin: 0;
+  }
 }

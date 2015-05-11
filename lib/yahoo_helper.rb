@@ -34,11 +34,42 @@ class YahooHelper
     resp_body["fantasy_content"]["users"]["0"]["user"][1]["games"]["0"]["game"][1]["leagues"]["0"]["league"][0]
   end
 
+  def self.get_league_settings(user, league)
+   url = "http://fantasysports.yahooapis.com/fantasy/v2/league/#{league['league_key']}/settings?format=json"
+   resp_body = self.make_user_api_request(user, url)
+   resp_body["fantasy_content"]["league"][1]["settings"]
+  end
+
   def self.get_user_team(user)
     url = "http://fantasysports.yahooapis.com/fantasy/v2/users;use_login=1/games;is_available=1;game_keys=mlb/teams?format=json"
     resp_body = self.make_user_api_request(user, url)
     team_data = resp_body["fantasy_content"]["users"]["0"]["user"][1]["games"]["0"]["game"][1]["teams"]["0"]["team"][0]
     team_data.select{ |k| k.class == Hash }.reduce Hash.new, :merge
+  end
+
+  def self.swap_players(user, team, swap_in, swap_out, date)
+    url = "http://fantasysports.yahooapis.com/fantasy/v2/team/#{team['team_key']}/roster"
+    req_hash = {
+      "roster"=> {
+        "coverage_type"=> "date",
+        "date"         => "#{date}",
+        "players"      => [
+          {
+            "player_key"=> "#{swap_in['player_key']}",
+            "position"  => "#{swap_out['selected_position']['position']}"
+          },
+          {
+            "player_key"=> "#{swap_out['player_key']}",
+            "position"  => "#{swap_in['selected_position']['position']}"
+          }
+        ]
+      }
+    }
+    req = req_hash.to_xml({ :skip_types => true, :dasherize  => false, :root => "fantasy_content"})
+    access_token = self.get_access_token(user)
+    header = { 'Content-Type' => 'application/xml' }
+
+    access_token.put(url, req, header)
   end
 
   def self.get_user_team_roster(user, team_key, date)
