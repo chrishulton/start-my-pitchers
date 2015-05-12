@@ -8,14 +8,17 @@ class HomesController < ApplicationController
     @team = ::YahooHelper.get_user_team(current_user)
     @week_pitchers = {}
 
-    (Date.today.beginning_of_week..Date.today.end_of_week).each do |date|
+    @today = Time.now.in_time_zone("Eastern Time (US & Canada)").to_date
+
+    (@today.beginning_of_week..@today.end_of_week).each do |date|
       players = ::YahooHelper.get_user_team_roster(current_user, @team['team_key'], date)
       @week_pitchers[date] = get_pitchers(players)
     end
   end
 
   def set_pitchers
-    dates = params[:date] ? [ params[:date] ] : (Date.today.beginning_of_week..Date.today.end_of_week).to_a
+    today = Time.now.in_time_zone("Eastern Time (US & Canada)").to_date
+    dates = params[:date] ? [ params[:date] ] : (today.beginning_of_week..today.end_of_week).to_a
 
     #XXX todo -- initialize helper with user and cache
     # league = ::YahooHelper.get_user_league(current_user)

@@ -17,7 +17,7 @@
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
   <% @week_pitchers.each do |date, pitchers| %>
-    <div class="daily-pitchers"<% if Date.today == date %> style="background-color: #eeeeee" <% end %>>
+    <div class="daily-pitchers"<% if @today == date %> style="background-color: #eeeeee" <% end %>>
       <p style="text-align: center;"><strong><%= Date::DAYNAMES[date.wday] %></strong><br><%= date %></p>
       <%= button_to "start 'em!", homes_set_pitchers_path(:date => date), :method => :put, :class => "btn" %>
       <table>
