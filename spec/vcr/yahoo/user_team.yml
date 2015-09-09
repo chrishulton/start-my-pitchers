@@ -1,0 +1,116 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://fantasysports.yahooapis.com/fantasy/v2/users;use_login=1/games;is_available=1;game_keys=mlb/teams
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - OAuth gem v0.4.7
+      Authorization:
+      - OAuth oauth_consumer_key="dj0yJmk9TXl6TUNoUjF6WEVSJmQ9WVdrOU9UTnViMEZ5TjJjbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD01Zg--",
+        oauth_nonce="Edt3zpIfKBhBWQLCL5pD6crzHq2rygfWLo0AeZ6FZNI", oauth_signature="mmFFuWTBXBajXYeVURhupKXIwqQ%3D",
+        oauth_signature_method="HMAC-SHA1", oauth_timestamp="1441835888", oauth_token="A%3DHhMyRcff4yBPX5854TC63vReAG7fMMpB5SJjN6pZYmbE9Vc0GbGCZwsCMJwtKrkaa3lzK5qWNdhwqZMdHMUp1JRnk0gi80veQkGrS3ej622.XoW8VNKpkSdY56eIBtiVYtStfVEhbSRvBic3ak7_.go64H7ZdwzVcaTME3B_cfsjWSK0EUTXb3ivbZCTN1i.qrUV0aM4qFGpMEJEXkrKa7hAtyzJcnEtfvoFWRVlakY49i.D8BSpsEpr0xGvt44ZY2KEVu.mN1F3pwngHQFQfSAEyHlMzP1zgJcEQudHDnHOOvdGdoPsAh8h5mUXUNwyjeaicF7Fpd_WmldkOznjSH4EwF0iEdifHYcwZehEtTJAGsKhxUenIQjBTvUZUY6gbkOGqDxacIwKQJ0P3Ixljmcn7XGbkpPnc_SNtDeEZuX82NGpWmGwRPF6VovlykAgYofSwaIxKi3sCScsQQjlTRbZZQ.Jv.MXahriHdUqt4QN3.uYGk5C5AQ39x.xPS0H4o5VN4FvUC8bXfjUNVeOIv9x_ny02SX61_NzzZ80DqelSJYryur3CzF1kuqf2L1FzDBy8IeTv.P5KbOrTILgIwAal6YU8FJ.XCGPfUfYZh680DG_Q5fzw_WhjZ7gcL7PdGaduZ1GaI8OcHtdTUqJ.ml3xskmpnjeHuaQS9LmdnbTl2bY4Y10LCHt2N1k3qdFvFkdxvtGL3AVK.Tvf0zRkUVA7TmA0Steex77aoA2YNihCm0VxaYamKeif6twUIcsmS9blM8INn_Z3v2w0cTnTDE.0TQgeCmZis91E.BIihTOO.h_2VS6C1cKKEvbsg--",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Sep 2015 21:58:08 GMT
+      P3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      X-Yahoo-Host:
+      - fanos822.sports.bf1.yahoo.com
+      Set-Cookie:
+      - SPTB=d=ms0Yz5vVN3Ntw1rn_arofr0VfcWKarId.pHvzk7SzJDqjMc6Yd6jgMX3PHcCHOA2eERSCzNNW49eK0bsY8xHBAT5sLKlQqUajHzzFV05GhM-&v=1;
+        expires=Fri, 09-Oct-2015 21:58:08 GMT; path=/; domain=fantasysports.yahooapis.com
+      Cache-Control:
+      - private,max-age=0,stale-while-revalidate=0
+      Content-Type:
+      - application/xml; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '872'
+      Age:
+      - '0'
+      Via:
+      - http/1.1 r29.ycpi.bf1.yahoo.net (ApacheTrafficServer [cMsSf ]), http/1.1 r03.ycpi.nyc.yahoo.net
+        (ApacheTrafficServer [cMsSf ])
+      Server:
+      - ATS
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <fantasy_content xml:lang="en-US" yahoo:uri="http://fantasysports.yahooapis.com/fantasy/v2/users;use_login=1/games;game_keys=mlb;is_available=1/teams" time="74.70703125ms" copyright="Data provided by Yahoo! and STATS, LLC" refresh_rate="31" xmlns:yahoo="http://www.yahooapis.com/v1/base.rng" xmlns="http://fantasysports.yahooapis.com/fantasy/v2/base.rng">
+         <users count="1">
+          <user>
+           <guid>6JYHNNOGRD2IEPMSFHURW2ZQ5A</guid>
+           <games count="1">
+            <game>
+             <game_key>346</game_key>
+             <game_id>346</game_id>
+             <name>Baseball</name>
+             <code>mlb</code>
+             <type>full</type>
+             <url>http://baseball.fantasysports.yahoo.com/b1</url>
+             <season>2015</season>
+             <is_registration_over>1</is_registration_over>
+             <teams count="1">
+              <team>
+               <team_key>346.l.115003.t.7</team_key>
+               <team_id>7</team_id>
+               <name>Polish Dwarf Lords</name>
+               <is_owned_by_current_login>1</is_owned_by_current_login>
+               <url>http://baseball.fantasysports.yahoo.com/b1/115003/7</url>
+               <team_logos>
+                <team_logo>
+                 <size>large</size>
+                 <url>https://i.imgur-ysports.com/gVe0XcAy.jpg</url>
+                </team_logo>
+               </team_logos>
+               <waiver_priority>7</waiver_priority>
+               <number_of_moves>23</number_of_moves>
+               <number_of_trades>0</number_of_trades>
+               <roster_adds>
+                <coverage_type>week</coverage_type>
+                <coverage_value>22</coverage_value>
+                <value>1</value>
+               </roster_adds>
+               <clinched_playoffs>1</clinched_playoffs>
+               <league_scoring_type>headpoint</league_scoring_type>
+               <managers>
+                <manager>
+                 <manager_id>7</manager_id>
+                 <nickname>Chris H</nickname>
+                 <guid>6JYHNNOGRD2IEPMSFHURW2ZQ5A</guid>
+                 <is_current_login>1</is_current_login>
+                 <email>chrishulton@gmail.com</email>
+                 <image_url>https://s.yimg.com/wv/images/91de3912c1ebc2bcc3e3ddc364ab33e3_64.jpg</image_url>
+                </manager>
+               </managers>
+              </team>
+             </teams>
+            </game>
+           </games>
+          </user>
+         </users>
+        </fantasy_content>
+    http_version: 
+  recorded_at: Wed, 09 Sep 2015 21:58:08 GMT
+recorded_with: VCR 2.9.3

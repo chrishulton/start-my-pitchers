@@ -4,7 +4,7 @@
 </header>
 <div class="team">
   <div class="team-left">
-    <img class='team-logo' src="<%= @team['team_logos'][0]['team_logo']['url'] %>">
+    <img class='team-logo' src="<%= @team['team_logos']['team_logo']['url'] %>">
   </div>
   <div class="team-right">
     <h3 class="team-name"><%= @team["name"] %></h3>
@@ -23,12 +23,12 @@
       <table>
       <% pitchers.each do |pitcher| %>
         <tr
-        <% if pitcher["starting_status"] && pitcher["starting_status"]["is_starting"] == 1 %>
+        <% if pitcher["starting_status"] && pitcher["starting_status"]["is_starting"] == "1" %>
           style="background-color: #0ab5d3; color: white;"
         <% end %>
         >
           <td>
-            <% if pitcher["starting_status"] && pitcher["starting_status"]["is_starting"] == 1 %>
+            <% if pitcher["starting_status"] && pitcher["starting_status"]["is_starting"] == "1" %>
               <strong>^</strong>
             <% end %>
           </td>
@@ -37,7 +37,7 @@
           </td>
           <td>
           <%= pitcher["name"]["first"].first %>. <%= pitcher["name"]["last"] %>
-          (<%= pitcher["eligible_positions"].select{ |p| !["P","DL"].include?(p["position"]) }.map{ |p| p["position"] }.join("/") %>)
+          (<%= pitcher["eligible_positions"]["position"].select{ |p| !["P","DL"].include?(p["position"]) }.join("/") %>)
           </td>
         </tr>
       <% end %>

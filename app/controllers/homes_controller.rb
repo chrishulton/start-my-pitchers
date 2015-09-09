@@ -32,14 +32,14 @@ class HomesController < ApplicationController
       pitchers = get_pitchers(players)
 
       startable_pitchers = pitchers.select{ |p|
-        p["is_editable"] == 1 && p["eligible_positions"].map{ |pos| pos["position"] }.include?("SP")
+        p["is_editable"] == "1" && p["eligible_positions"]["position"].include?("SP")
       }
 
       off_starters_starting = startable_pitchers.select{ |p|
-        !(p["starting_status"] && p["starting_status"]["is_starting"] == 1) && ["P","SP"].include?(p["selected_position"]["position"])
+        !(p["starting_status"] && p["starting_status"]["is_starting"] == "1") && ["P","SP"].include?(p["selected_position"]["position"])
       }
       starters_on_bench = startable_pitchers.select{ |p|
-        p["starting_status"] && p["starting_status"]["is_starting"] == 1 && "BN" == p["selected_position"]["position"]
+        p["starting_status"] && p["starting_status"]["is_starting"] == "1" && "BN" == p["selected_position"]["position"]
       }
 
       starters_on_bench.each do |benched_starter|

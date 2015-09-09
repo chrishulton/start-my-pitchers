@@ -34,10 +34,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'omniauth-yahoo'
+
+group :test do
+  gem 'webmock'
+end
+
 group :development, :test do
   gem 'pry'
   gem 'pry-nav'
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'vcr'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

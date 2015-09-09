@@ -1,0 +1,108 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://fantasysports.yahooapis.com/fantasy/v2/users;use_login=1/games;is_available=1;game_keys=mlb/leagues
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - OAuth gem v0.4.7
+      Authorization:
+      - OAuth oauth_consumer_key="dj0yJmk9TXl6TUNoUjF6WEVSJmQ9WVdrOU9UTnViMEZ5TjJjbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD01Zg--",
+        oauth_nonce="n7kfLobo3vvzpwOoOGtvaC1MuNNFBHB1c3nWS5FD9gc", oauth_signature="Tz6L%2BcFqo1%2BhNtQll5LLRdQxbNs%3D",
+        oauth_signature_method="HMAC-SHA1", oauth_timestamp="1441835888", oauth_token="A%3DHhMyRcff4yBPX5854TC63vReAG7fMMpB5SJjN6pZYmbE9Vc0GbGCZwsCMJwtKrkaa3lzK5qWNdhwqZMdHMUp1JRnk0gi80veQkGrS3ej622.XoW8VNKpkSdY56eIBtiVYtStfVEhbSRvBic3ak7_.go64H7ZdwzVcaTME3B_cfsjWSK0EUTXb3ivbZCTN1i.qrUV0aM4qFGpMEJEXkrKa7hAtyzJcnEtfvoFWRVlakY49i.D8BSpsEpr0xGvt44ZY2KEVu.mN1F3pwngHQFQfSAEyHlMzP1zgJcEQudHDnHOOvdGdoPsAh8h5mUXUNwyjeaicF7Fpd_WmldkOznjSH4EwF0iEdifHYcwZehEtTJAGsKhxUenIQjBTvUZUY6gbkOGqDxacIwKQJ0P3Ixljmcn7XGbkpPnc_SNtDeEZuX82NGpWmGwRPF6VovlykAgYofSwaIxKi3sCScsQQjlTRbZZQ.Jv.MXahriHdUqt4QN3.uYGk5C5AQ39x.xPS0H4o5VN4FvUC8bXfjUNVeOIv9x_ny02SX61_NzzZ80DqelSJYryur3CzF1kuqf2L1FzDBy8IeTv.P5KbOrTILgIwAal6YU8FJ.XCGPfUfYZh680DG_Q5fzw_WhjZ7gcL7PdGaduZ1GaI8OcHtdTUqJ.ml3xskmpnjeHuaQS9LmdnbTl2bY4Y10LCHt2N1k3qdFvFkdxvtGL3AVK.Tvf0zRkUVA7TmA0Steex77aoA2YNihCm0VxaYamKeif6twUIcsmS9blM8INn_Z3v2w0cTnTDE.0TQgeCmZis91E.BIihTOO.h_2VS6C1cKKEvbsg--",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Sep 2015 21:58:08 GMT
+      P3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      X-Yahoo-Host:
+      - fanos148.sports.bf1.yahoo.com
+      Set-Cookie:
+      - SPTB=d=ms0Yz5vVN3Ntw1rn_arofr0VfcWKarId.pHvzk7SzJDqjMc6Yd6jgMX3PHcCHOA2eERSCzNNW49eK0bsY8xHBAT5sLKlQqUajHzzFV05GhM-&v=1;
+        expires=Fri, 09-Oct-2015 21:58:08 GMT; path=/; domain=fantasysports.yahooapis.com
+      Cache-Control:
+      - private,max-age=0,stale-while-revalidate=0
+      Content-Type:
+      - application/xml; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '839'
+      Age:
+      - '0'
+      Via:
+      - http/1.1 r03.ycpi.bf1.yahoo.net (ApacheTrafficServer [cMsSf ]), http/1.1 r13.ycpi.nyc.yahoo.net
+        (ApacheTrafficServer [cMsSf ])
+      Server:
+      - ATS
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <fantasy_content xml:lang="en-US" yahoo:uri="http://fantasysports.yahooapis.com/fantasy/v2/users;use_login=1/games;game_keys=mlb;is_available=1/leagues" time="65.615892410278ms" copyright="Data provided by Yahoo! and STATS, LLC" refresh_rate="31" xmlns:yahoo="http://www.yahooapis.com/v1/base.rng" xmlns="http://fantasysports.yahooapis.com/fantasy/v2/base.rng">
+         <users count="1">
+          <user>
+           <guid>6JYHNNOGRD2IEPMSFHURW2ZQ5A</guid>
+           <games count="1">
+            <game>
+             <game_key>346</game_key>
+             <game_id>346</game_id>
+             <name>Baseball</name>
+             <code>mlb</code>
+             <type>full</type>
+             <url>http://baseball.fantasysports.yahoo.com/b1</url>
+             <season>2015</season>
+             <is_registration_over>1</is_registration_over>
+             <leagues count="1">
+              <league>
+               <league_key>346.l.115003</league_key>
+               <league_id>115003</league_id>
+               <name>Settlers of Baseball 4.0</name>
+               <url>http://baseball.fantasysports.yahoo.com/b1/115003</url>
+               <league_chat_id>c12nfxbpjxwwg8523ntywmu92hre8wa</league_chat_id>
+               <draft_status>postdraft</draft_status>
+               <num_teams>10</num_teams>
+               <edit_key>2015-09-10</edit_key>
+               <weekly_deadline/>
+               <league_update_timestamp>1441783680</league_update_timestamp>
+               <scoring_type>headpoint</scoring_type>
+               <league_type>private</league_type>
+               <renew>328_91021</renew>
+               <renewed/>
+               <short_invitation_url>https://yho.com/mlb?l=115003&amp;k=da09ab4cf9a49564</short_invitation_url>
+               <is_pro_league>0</is_pro_league>
+               <current_week>22</current_week>
+               <start_week>1</start_week>
+               <start_date>2015-04-05</start_date>
+               <end_week>24</end_week>
+               <end_date>2015-09-27</end_date>
+               <game_code>mlb</game_code>
+               <season>2015</season>
+              </league>
+             </leagues>
+            </game>
+           </games>
+          </user>
+         </users>
+        </fantasy_content>
+    http_version: 
+  recorded_at: Wed, 09 Sep 2015 21:58:08 GMT
+recorded_with: VCR 2.9.3

@@ -5,22 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   devise :omniauthable, :omniauth_providers => [:yahoo]
-  # field :yahoo_id
-  # field :yahoo_access_token,      :type => Hash, :default => {}
 
   validates :yahoo_id, :yahoo_token, :yahoo_secret, :yahoo_session_handle,
     :presence => true
 
-
   validates :yahoo_id, :uniqueness => { :message => "Yahoo account is already registered" }
-
-  # def self.initialize_from_auth_hash(auth)
-    # user = self.new
-    # user.yahoo_id = auth.uid
-    # user.yahoo_token = auth.credentials.token
-    # user.yahoo_secret = auth.credentials.secret
-    # user
-  # end
 
   def self.initialize_from_auth_hash(omniauth_hash)
     where(yahoo_id: omniauth_hash.uid).first_or_create! do |user|
