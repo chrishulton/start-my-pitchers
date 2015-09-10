@@ -37,7 +37,7 @@
           </td>
           <td>
           <%= pitcher["name"]["first"].first %>. <%= pitcher["name"]["last"] %>
-          (<%= pitcher["eligible_positions"]["position"].select{ |p| !["P","DL"].include?(p["position"]) }.join("/") %>)
+          (<%= pitcher["eligible_positions"]["position"].select{ |p| !["P"].include?(p) }.join("/") %>)
           </td>
         </tr>
       <% end %>
