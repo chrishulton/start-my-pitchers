@@ -7,7 +7,7 @@ Are you tired of swapping pitcher positions every day, every week, for the entir
 
 Auth your Yahoo account and start reclaiming those wasted minutes.  One click a week is all it takes.  
 
-![](http://c1.staticflickr.com/1/744/21281472175_28d462777c_k.jpg "Start My Pitchers")
+![](http://c1.staticflickr.com/1/744/21281472175_46914d3a95_k.jpg "Start My Pitchers")
 
 ### What's next?
 
