@@ -14,3 +14,6 @@ Auth your Yahoo account and start reclaiming those wasted minutes.  One click a 
 How about one click, period, for the entire season?
 
 Automatic, recurring lineup setting is the next big feature in the works.
+
+
+QA bump
